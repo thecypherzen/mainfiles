@@ -42,10 +42,12 @@ int _getfpath_helpr(char **full_path, char **pwd, char *vecti)
 		else 
 		{
 			printf("in section 2\n");
-			temp = *pwd;
-			printf("pwd saved in temp\n");
-			*pwd = (strcmp(chars[j], "~") == 0) ?
-				strdup(getenv("HOME")) : *pwd;
+			if (strcmp(chars[j], "~") == 0)
+			{
+				temp = *pwd, *pwd = strdup(getenv("HOME"));
+				if (temp)
+					free(temp), temp = NULL;
+			}
 			if (*pwd)
 			{
 				pwd_name = _getdir_name(*pwd);
@@ -58,13 +60,7 @@ int _getfpath_helpr(char **full_path, char **pwd, char *vecti)
 					printf("gfph: free successful\n");
 				}
 			}
-			if (temp)
-			{
-				printf("gfph: freeing temp\n");
-				free(temp), temp = NULL;
-				printf("gfph: temp free successful\n");
-			}
-			/*printf("\n\nsaving pwd in temp again\n");
+			printf("\n\nsaving pwd in temp\n");
 			printf("pwd: %s\n", *pwd ? *pwd : "null");
 			temp = *pwd,  *pwd = _getparent_path(*pwd);
 			printf("save successful\n");
@@ -73,7 +69,7 @@ int _getfpath_helpr(char **full_path, char **pwd, char *vecti)
 				printf("gfph: freeing temp again\n");
 				free(temp), temp = NULL;
 				printf("gfph: free successful\n");
-			}*/
+			}
 		}
 	}
 	return (k);

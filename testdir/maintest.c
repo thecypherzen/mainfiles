@@ -4,7 +4,7 @@
 /* ../../../this */
 int main(void)
 {
-	char *path = "./this/and";
+	char *path = "~/this/and";
 	char *full_path = getfull_path(path);
 	if (full_path)
 	{
