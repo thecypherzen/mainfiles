@@ -14,11 +14,12 @@ int islogical_checkr(char **cmdstr)
 	if (!cmdstr || !(*cmdstr))
 		return (-1);
 
+	/* check if command string is a logical cmd or not */
 	for (i = 0; (*cmdstr)[i]; i++) 
 	{
-		if ((*cmdstr)[i] == '|' || 
-			(*cmdstr)[i] == '&' || 
-			(*cmdstr)[i] == ';')
+		if ((*cmdstr)[i] == '|'
+		|| (*cmdstr)[i] == '&'
+		|| (*cmdstr)[i] == ';')
 		{
 			is_logical = 1;
 			break;

@@ -12,6 +12,7 @@ int cmd_prepcheckr(char *cmd, Info shell, Alias_t *alias_h,
 	{
 		if (ret == NORMAL_FAIL)
 			throw_sh_err(NULL, shell);
+		free(cmdstr);
 		return (ret);
 	}
 	ret = islogical_checkr(&cmdstr);

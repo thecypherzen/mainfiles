@@ -33,8 +33,7 @@ int shell_mgr(Info shell, Alias_t *alias_h, Env_t *env_h)
 				close(fd);
 			if ((ret = write(1, "\n", 1)) != -1)
 				break;
-			else
-				perror("Fatal");
+			perror("Fatal");
 		}
 	}
 	free(cmd);
