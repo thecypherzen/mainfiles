@@ -26,9 +26,12 @@ char **make_vectr(char *inputstr, char *delim)
 	if (!vectr)
 		return (NULL);
 	vectr[--n] = NULL, token = strtok(str, delim);
-	for (i = 0; token && i < n; i++)
+	for (i = 0; i < n; i++)
 	{
-		vectr[i] = strdup(token);
+		if (!token)
+			vectr[i] = NULL;
+		else
+			vectr[i] = strdup(token);
 		token = strtok(NULL, delim);
 	}
 	free(str);

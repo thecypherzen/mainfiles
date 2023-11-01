@@ -62,6 +62,7 @@ typedef struct Env_t
 void throw_sh_err(char *, Info);
 int throw_syntax_err(int, Info, ...);
 char **make_vectr(char *, char *);
+void free_charptr(char **ptr);
 void free_vectr(char **);
 void free_structs(Alias_t *, Env_t *);
 char *_getparent_path(char *cwd);
@@ -69,6 +70,7 @@ char *_getdir_name(char *cwd);
 char *getfull_path(char *path);
 int _getfpath_copier(char **full_path, char *name, int strt);
 int _getfpath_helpr(char **full_path, char **pwd, char *vecti);
+int _fpath_maker(char **full_path, char **vect, int i);
 char  *str_rev(char *str);
 
 /* Shell functions */

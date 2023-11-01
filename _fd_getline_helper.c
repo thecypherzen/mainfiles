@@ -13,7 +13,7 @@ ssize_t _fd_getline_helper(char **buff, char **line, size_t *line_sz)
 			*line = realloc(*line, *line_sz);
 			if (!(*line))
 			{
-				perror("get_line");
+				printf("malloc failure\n");
 				return (-1);
 			}
 		}
