@@ -1,7 +1,6 @@
 #include "gosh.h"
 
-int cmd_prepcheckr(char *cmd, Info shell, Alias_t *alias_h,
-			Env_t *env_h)
+int cmd_prepcheckr(char *cmd, Info shell)
 {
 	int ret;
 	char *cmdstr = NULL, **cmdv = NULL;
@@ -29,11 +28,11 @@ int cmd_prepcheckr(char *cmd, Info shell, Alias_t *alias_h,
 			free(cmdstr);
 			return (NORMAL_FAIL);
 		}
-		ret = cmdexec_mgr(cmdv, NULL, shell, alias_h, env_h);
+		ret = cmdexec_mgr(cmdv, NULL, shell);
 		free_vectr(cmdv);
 	}
 	else
-		ret = cmdexec_mgr(NULL, cmdstr, shell, alias_h, env_h);
+		ret = cmdexec_mgr(NULL, cmdstr, shell);
 	free(cmdstr);
 	return (ret);
 }

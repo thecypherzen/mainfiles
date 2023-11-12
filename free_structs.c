@@ -9,22 +9,23 @@
  */
 void free_structs(Alias_t *alias_h, Env_t *env_h)
 {
-	void *temp, *prev;
-	
+	void *temp;
+
+	/* Freeing alias list */
 	while (alias_h)
 	{
-		prev = alias_h;
 		temp = alias_h->next;
-		free(((Alias_t *)prev)->name);
-		free(((Alias_t *)prev)->val);
+		free(alias_h->name), free(alias_h->val);
+		free(alias_h);
 		alias_h = (Alias_t *)temp;
 	}
+
+	/* Freeing env list */
 	while (env_h)
 	{
-		prev = env_h;
 		temp = env_h->next;
-		free(((Env_t *)prev)->name);
-		free(((Env_t *)prev)->val);
+		free(env_h->name), free(env_h->val);
+		free(env_h);
 		env_h = (Env_t *)temp;
 	}
 }

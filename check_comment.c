@@ -9,7 +9,7 @@ void check_comment(char *cmd)
 {
 	size_t len;
 	char *comment;
-	
+
 	if (cmd)
 	{
 		len = strlen(cmd);

@@ -32,7 +32,5 @@ ftype func_selectr(char *cmd, Info shell)
 			break;
 		}
 	}
-	if (match)
-		return (builtins[i].func);
-	return (fork_exec);
+	return (match ? builtins[i].func : fork_exec);
 }

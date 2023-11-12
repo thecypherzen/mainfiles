@@ -1,5 +1,5 @@
 #include "gosh.h"
-int cd_exec(char **ex_cmdv, Info shell, ...)
+int cd_exec(char **ex_cmdv, Info shell)
 {
 	printf("cd_exec called\n");
 	(void)ex_cmdv, (void)shell;

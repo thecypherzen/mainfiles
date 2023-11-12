@@ -5,7 +5,7 @@ ssize_t fd_getline(char **line, size_t *sz, int fd)
 	char *buff;
 	size_t buffsz = 128, i;
 	ssize_t res, n = 0;
-	
+
 	buff = malloc(buffsz);
 	if (!buff)
 		return (-1);

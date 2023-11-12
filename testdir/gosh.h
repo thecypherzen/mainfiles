@@ -102,6 +102,11 @@ int fork_exec(char **, Info, ...);
 int setenv_exec(char **, Info, ...);
 int unsetenv_exec(char **, Info, ...);
 
+/* Command Handling Helper functions */
+void _print_alias(Alias_t);
+char *_str_dequote(char *, Info);
+int _force_terminate(char **, size_t, Info);
+char *_strquote_remove(char *);
 
 
 
