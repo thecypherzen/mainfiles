@@ -23,12 +23,20 @@ int cmdexec_mgr(char **cmdv, char *cmdstr, Info shell)
 	else
 	{
 		curr_cmd = strdup(cmdstr);
-		ex_cmdv = make_vectr(curr_cmd, " ");
+		ex_cmdv = make_vectr(curr_cmd, " \t");
 		if (!ex_cmdv)
 		{
-			free(curr_cmd);
-			throw_sh_err(NULL, shell);
+			free(curr_cmd), throw_sh_err(NULL, shell);
 			return (NORMAL_FAIL);
+		}
+		for (i = 1; ex_cmdv[i]; i++)
+		{
+			if (ex_cmdv[i][0] == '#')
+			{
+				for (; ex_cmdv[i]; i++)
+					free(ex_cmdv[i]), ex_cmdv[i] = NULL;
+				break;
+			}
 		}
 		ifunc = func_selectr(ex_cmdv[0], shell);
 		ret = ifunc(ex_cmdv, shell);

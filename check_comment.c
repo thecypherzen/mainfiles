@@ -7,17 +7,9 @@
  */
 void check_comment(char *cmd)
 {
-	size_t len;
-	char *comment;
-
 	if (cmd)
 	{
-		len = strlen(cmd);
-		cmd[len - 1] = '\0';
-		comment = strchr(cmd, '#');
-		if (comment)
-			*comment = '\0';
+		if (*cmd == '#')
+			*cmd = '\0';
 	}
-	else
-		perror("NULL POINTER");
 }

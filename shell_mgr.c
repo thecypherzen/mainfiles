@@ -21,7 +21,7 @@ int shell_mgr(Info shell)
 		ret = fd_getline(&cmd, &sz, fd);
 		if (ret > 0)
 		{
-			check_comment(cmd), len = strlen(cmd);
+			cmd[ret - 1] = '\0', check_comment(cmd), len = strlen(cmd);
 			if (len)
 			{
 				ret = cmd_prepcheckr(cmd, shell);

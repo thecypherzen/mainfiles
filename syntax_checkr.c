@@ -25,7 +25,7 @@ int syntax_checkr(char **cmdstr, char *cmd, Info shell)
 		free(cmdln);
 		return (ret = _callout_syntax_err(cmd, shell));
 	}
-	token = strtok(cmdln, " ");
+	token = strtok(cmdln, " \t");
 	while (token)
 	{
 		matched = _syntax_token_cmp(lops, token);
@@ -45,7 +45,7 @@ int syntax_checkr(char **cmdstr, char *cmd, Info shell)
 				return (ret);
 			}
 		}
-		token = strtok(NULL, " "), k++;
+		token = strtok(NULL, " \t"), k++;
 	}
 	free(cmdln);
 	return (0);

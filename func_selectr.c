@@ -8,7 +8,7 @@
  */
 ftype func_selectr(char *cmd, Info shell)
 {
-	Toolbox builtins[] = 
+	Toolbox builtins[] =
 	{
 		{"alias", alias_exec}, {"cat", cat_exec},
 		{"cd", cd_exec}, {"echo", echo_exec},
@@ -17,7 +17,7 @@ ftype func_selectr(char *cmd, Info shell)
 		{"type", ftype_checkr}, {NULL, NULL}
 	};
 	int i, match = 0;
-	
+
 	if (!cmd)
 	{
 		errno = SIGSEGV;

@@ -54,7 +54,7 @@ typedef struct	/* shell info type struct */
 typedef struct	/* shell functions struct */
 {
 	const char* const cmd;
-	int (*func)(char **ex_cmdv, Info shell);
+	int (*func)(char **, Info);
 } Toolbox;
 
 /* function selector*/
